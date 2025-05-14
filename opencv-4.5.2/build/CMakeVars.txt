@@ -105,12 +105,10 @@ CAROTENE_HAL_LIBRARIES=tegra_hal
 CAROTENE_HAL_VERSION=0.0.1
 CAROTENE_NS=carotene_o4t
 CCACHE_PROGRAM=CCACHE_PROGRAM-NOTFOUND
-CHECK_INCLUDE_FILE_VAR=stddef.h
 CLAMDBLAS_INCLUDE_DIR=CLAMDBLAS_INCLUDE_DIR-NOTFOUND
 CLAMDBLAS_ROOT_DIR=CLAMDBLAS_ROOT_DIR-NOTFOUND
 CLAMDFFT_INCLUDE_DIR=CLAMDFFT_INCLUDE_DIR-NOTFOUND
 CLAMDFFT_ROOT_DIR=CLAMDFFT_ROOT_DIR-NOTFOUND
-CMAKE_16BIT_TYPE=unsigned short
 CMAKE_ADDR2LINE=/usr/bin/addr2line
 CMAKE_AR=/usr/bin/ar
 CMAKE_AR=/usr/bin/ar
@@ -134,6 +132,10 @@ CMAKE_C99_COMPILE_FEATURES=c_std_99;c_restrict;c_variadic_macros
 CMAKE_C99_EXTENSION_COMPILE_OPTION=-std=gnu99
 CMAKE_C99_STANDARD_COMPILE_OPTION=-std=c99
 CMAKE_C99_STANDARD__HAS_FULL_SUPPORT=ON
+CMAKE_CACHEFILE_DIR=/home/user/library/opencv-4.5.2/build
+CMAKE_CACHE_MAJOR_VERSION=3
+CMAKE_CACHE_MINOR_VERSION=18
+CMAKE_CACHE_PATCH_VERSION=4
 CMAKE_CFG_INTDIR=.
 CMAKE_COLOR_MAKEFILE=ON
 CMAKE_COMMAND=/usr/bin/cmake
@@ -182,323 +184,15 @@ CMAKE_CXX_COMPILER=/usr/bin/c++
 CMAKE_CXX_COMPILER_ABI=ELF
 CMAKE_CXX_COMPILER_AR=/usr/bin/gcc-ar-10
 CMAKE_CXX_COMPILER_AR=/usr/bin/gcc-ar-10
-CMAKE_CXX_COMPILER_ARCHITECTURE_ID=
 CMAKE_CXX_COMPILER_ARG1=
 CMAKE_CXX_COMPILER_ENV_VAR=CXX
 CMAKE_CXX_COMPILER_FRONTEND_VARIANT=
 CMAKE_CXX_COMPILER_ID=GNU
-CMAKE_CXX_COMPILER_ID_PLATFORM_CONTENT=#define STRINGIFY_HELPER(X) #X
-#define STRINGIFY(X) STRINGIFY_HELPER(X)
-
-/* Identify known platforms by name.  */
-#if defined(__linux) || defined(__linux__) || defined(linux)
-# define PLATFORM_ID "Linux"
-
-#elif defined(__CYGWIN__)
-# define PLATFORM_ID "Cygwin"
-
-#elif defined(__MINGW32__)
-# define PLATFORM_ID "MinGW"
-
-#elif defined(__APPLE__)
-# define PLATFORM_ID "Darwin"
-
-#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-# define PLATFORM_ID "Windows"
-
-#elif defined(__FreeBSD__) || defined(__FreeBSD)
-# define PLATFORM_ID "FreeBSD"
-
-#elif defined(__NetBSD__) || defined(__NetBSD)
-# define PLATFORM_ID "NetBSD"
-
-#elif defined(__OpenBSD__) || defined(__OPENBSD)
-# define PLATFORM_ID "OpenBSD"
-
-#elif defined(__sun) || defined(sun)
-# define PLATFORM_ID "SunOS"
-
-#elif defined(_AIX) || defined(__AIX) || defined(__AIX__) || defined(__aix) || defined(__aix__)
-# define PLATFORM_ID "AIX"
-
-#elif defined(__hpux) || defined(__hpux__)
-# define PLATFORM_ID "HP-UX"
-
-#elif defined(__HAIKU__)
-# define PLATFORM_ID "Haiku"
-
-#elif defined(__BeOS) || defined(__BEOS__) || defined(_BEOS)
-# define PLATFORM_ID "BeOS"
-
-#elif defined(__QNX__) || defined(__QNXNTO__)
-# define PLATFORM_ID "QNX"
-
-#elif defined(__tru64) || defined(_tru64) || defined(__TRU64__)
-# define PLATFORM_ID "Tru64"
-
-#elif defined(__riscos) || defined(__riscos__)
-# define PLATFORM_ID "RISCos"
-
-#elif defined(__sinix) || defined(__sinix__) || defined(__SINIX__)
-# define PLATFORM_ID "SINIX"
-
-#elif defined(__UNIX_SV__)
-# define PLATFORM_ID "UNIX_SV"
-
-#elif defined(__bsdos__)
-# define PLATFORM_ID "BSDOS"
-
-#elif defined(_MPRAS) || defined(MPRAS)
-# define PLATFORM_ID "MP-RAS"
-
-#elif defined(__osf) || defined(__osf__)
-# define PLATFORM_ID "OSF1"
-
-#elif defined(_SCO_SV) || defined(SCO_SV) || defined(sco_sv)
-# define PLATFORM_ID "SCO_SV"
-
-#elif defined(__ultrix) || defined(__ultrix__) || defined(_ULTRIX)
-# define PLATFORM_ID "ULTRIX"
-
-#elif defined(__XENIX__) || defined(_XENIX) || defined(XENIX)
-# define PLATFORM_ID "Xenix"
-
-#elif defined(__WATCOMC__)
-# if defined(__LINUX__)
-#  define PLATFORM_ID "Linux"
-
-# elif defined(__DOS__)
-#  define PLATFORM_ID "DOS"
-
-# elif defined(__OS2__)
-#  define PLATFORM_ID "OS2"
-
-# elif defined(__WINDOWS__)
-#  define PLATFORM_ID "Windows3x"
-
-# elif defined(__VXWORKS__)
-#  define PLATFORM_ID "VxWorks"
-
-# else /* unknown platform */
-#  define PLATFORM_ID
-# endif
-
-#elif defined(__INTEGRITY)
-# if defined(INT_178B)
-#  define PLATFORM_ID "Integrity178"
-
-# else /* regular Integrity */
-#  define PLATFORM_ID "Integrity"
-# endif
-
-#else /* unknown platform */
-# define PLATFORM_ID
-
-#endif
-
-/* For windows compilers MSVC and Intel we can determine
-   the architecture of the compiler being used.  This is because
-   the compilers do not have flags that can change the architecture,
-   but rather depend on which compiler is being used
-*/
-#if defined(_WIN32) && defined(_MSC_VER)
-# if defined(_M_IA64)
-#  define ARCHITECTURE_ID "IA64"
-
-# elif defined(_M_X64) || defined(_M_AMD64)
-#  define ARCHITECTURE_ID "x64"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# elif defined(_M_ARM64)
-#  define ARCHITECTURE_ID "ARM64"
-
-# elif defined(_M_ARM)
-#  if _M_ARM == 4
-#   define ARCHITECTURE_ID "ARMV4I"
-#  elif _M_ARM == 5
-#   define ARCHITECTURE_ID "ARMV5I"
-#  else
-#   define ARCHITECTURE_ID "ARMV" STRINGIFY(_M_ARM)
-#  endif
-
-# elif defined(_M_MIPS)
-#  define ARCHITECTURE_ID "MIPS"
-
-# elif defined(_M_SH)
-#  define ARCHITECTURE_ID "SHx"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__WATCOMC__)
-# if defined(_M_I86)
-#  define ARCHITECTURE_ID "I86"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__IAR_SYSTEMS_ICC__) || defined(__IAR_SYSTEMS_ICC)
-# if defined(__ICCARM__)
-#  define ARCHITECTURE_ID "ARM"
-
-# elif defined(__ICCRX__)
-#  define ARCHITECTURE_ID "RX"
-
-# elif defined(__ICCRH850__)
-#  define ARCHITECTURE_ID "RH850"
-
-# elif defined(__ICCRL78__)
-#  define ARCHITECTURE_ID "RL78"
-
-# elif defined(__ICCRISCV__)
-#  define ARCHITECTURE_ID "RISCV"
-
-# elif defined(__ICCAVR__)
-#  define ARCHITECTURE_ID "AVR"
-
-# elif defined(__ICC430__)
-#  define ARCHITECTURE_ID "MSP430"
-
-# elif defined(__ICCV850__)
-#  define ARCHITECTURE_ID "V850"
-
-# elif defined(__ICC8051__)
-#  define ARCHITECTURE_ID "8051"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__ghs__)
-# if defined(__PPC64__)
-#  define ARCHITECTURE_ID "PPC64"
-
-# elif defined(__ppc__)
-#  define ARCHITECTURE_ID "PPC"
-
-# elif defined(__ARM__)
-#  define ARCHITECTURE_ID "ARM"
-
-# elif defined(__x86_64__)
-#  define ARCHITECTURE_ID "x64"
-
-# elif defined(__i386__)
-#  define ARCHITECTURE_ID "X86"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-#else
-#  define ARCHITECTURE_ID
-#endif
-
-/* Convert integer to decimal digit literals.  */
-#define DEC(n)                   \
-  ('0' + (((n) / 10000000)%10)), \
-  ('0' + (((n) / 1000000)%10)),  \
-  ('0' + (((n) / 100000)%10)),   \
-  ('0' + (((n) / 10000)%10)),    \
-  ('0' + (((n) / 1000)%10)),     \
-  ('0' + (((n) / 100)%10)),      \
-  ('0' + (((n) / 10)%10)),       \
-  ('0' +  ((n) % 10))
-
-/* Convert integer to hex digit literals.  */
-#define HEX(n)             \
-  ('0' + ((n)>>28 & 0xF)), \
-  ('0' + ((n)>>24 & 0xF)), \
-  ('0' + ((n)>>20 & 0xF)), \
-  ('0' + ((n)>>16 & 0xF)), \
-  ('0' + ((n)>>12 & 0xF)), \
-  ('0' + ((n)>>8  & 0xF)), \
-  ('0' + ((n)>>4  & 0xF)), \
-  ('0' + ((n)     & 0xF))
-
-/* Construct a string literal encoding the version number components. */
-#ifdef COMPILER_VERSION_MAJOR
-char const info_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
-  COMPILER_VERSION_MAJOR,
-# ifdef COMPILER_VERSION_MINOR
-  '.', COMPILER_VERSION_MINOR,
-#  ifdef COMPILER_VERSION_PATCH
-   '.', COMPILER_VERSION_PATCH,
-#   ifdef COMPILER_VERSION_TWEAK
-    '.', COMPILER_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct a string literal encoding the internal version number. */
-#ifdef COMPILER_VERSION_INTERNAL
-char const info_version_internal[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','_',
-  'i','n','t','e','r','n','a','l','[',
-  COMPILER_VERSION_INTERNAL,']','\0'};
-#endif
-
-/* Construct a string literal encoding the version number components. */
-#ifdef SIMULATE_VERSION_MAJOR
-char const info_simulate_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  's','i','m','u','l','a','t','e','_','v','e','r','s','i','o','n','[',
-  SIMULATE_VERSION_MAJOR,
-# ifdef SIMULATE_VERSION_MINOR
-  '.', SIMULATE_VERSION_MINOR,
-#  ifdef SIMULATE_VERSION_PATCH
-   '.', SIMULATE_VERSION_PATCH,
-#   ifdef SIMULATE_VERSION_TWEAK
-    '.', SIMULATE_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct the string literal in pieces to prevent the source from
-   getting matched.  Store it in a pointer rather than an array
-   because some compilers will just produce instructions to fill the
-   array rather than assigning a pointer to a static array.  */
-char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
-char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
-
-
 CMAKE_CXX_COMPILER_ID_RUN=1
-CMAKE_CXX_COMPILER_ID_TEST_FLAGS=-c;--c++;--ec++;--target=arm-arm-none-eabi -mcpu=cortex-m3
-CMAKE_CXX_COMPILER_ID_TOOL_MATCH_INDEX=2
-CMAKE_CXX_COMPILER_ID_TOOL_MATCH_REGEX=
-Ld[^
-]*(
-[ 	]+[^
-]*)*
-[ 	]+([^ 	
-]+)[^
-]*-o[^
-]*CompilerIdCXX/(\./)?(CompilerIdCXX.(framework|xctest)/)?CompilerIdCXX[ 	
-\"]
-CMAKE_CXX_COMPILER_ID_VENDORS=IAR
-CMAKE_CXX_COMPILER_ID_VENDOR_REGEX_IAR=IAR .+ Compiler
-CMAKE_CXX_COMPILER_INIT=NOTFOUND
-CMAKE_CXX_COMPILER_LIST=c++;CC;g++;aCC;cl;bcc;xlC;clang++
 CMAKE_CXX_COMPILER_LOADED=1
-CMAKE_CXX_COMPILER_NAMES=c++
 CMAKE_CXX_COMPILER_PREDEFINES_COMMAND=/usr/bin/c++;-dM;-E;-c;/usr/share/cmake-3.18/Modules/CMakeCXXCompilerABI.cpp
-CMAKE_CXX_COMPILER_PRODUCED_FILES=a.out
-CMAKE_CXX_COMPILER_PRODUCED_OUTPUT=
 CMAKE_CXX_COMPILER_RANLIB=/usr/bin/gcc-ranlib-10
 CMAKE_CXX_COMPILER_RANLIB=/usr/bin/gcc-ranlib-10
-CMAKE_CXX_COMPILER_SYSROOT=
 CMAKE_CXX_COMPILER_VERSION=10.2.1
 CMAKE_CXX_COMPILER_VERSION_INTERNAL=
 CMAKE_CXX_COMPILER_WORKS=TRUE
@@ -551,13 +245,12 @@ CMAKE_CXX_PLATFORM_ID=Linux
 CMAKE_CXX_SIMULATE_ID=
 CMAKE_CXX_SIMULATE_VERSION=
 CMAKE_CXX_SIZEOF_DATA_PTR=8
-CMAKE_CXX_SOURCE_FILE_EXTENSIONS=C;M;c++;cc;cpp;cxx;mm;CPP
+CMAKE_CXX_SOURCE_FILE_EXTENSIONS=C;M;c++;cc;cpp;cxx;m;mm;CPP
 CMAKE_CXX_STANDARD=11
 CMAKE_CXX_STANDARD_COMPUTED_DEFAULT=14
 CMAKE_CXX_STANDARD_DEFAULT=14
 CMAKE_CXX_STANDARD_REQUIRED=TRUE
 CMAKE_CXX_VERBOSE_FLAG=-v
-CMAKE_CXX_XCODE_ARCHS=
 CMAKE_C_ABI_COMPILED=TRUE
 CMAKE_C_ARCHIVE_APPEND=<CMAKE_AR> q <TARGET> <LINK_FLAGS> <OBJECTS>
 CMAKE_C_ARCHIVE_APPEND_IPO="/usr/bin/gcc-ar-10" r <TARGET> <LINK_FLAGS> <OBJECTS>
@@ -571,323 +264,15 @@ CMAKE_C_COMPILER=/usr/bin/cc
 CMAKE_C_COMPILER_ABI=ELF
 CMAKE_C_COMPILER_AR=/usr/bin/gcc-ar-10
 CMAKE_C_COMPILER_AR=/usr/bin/gcc-ar-10
-CMAKE_C_COMPILER_ARCHITECTURE_ID=
 CMAKE_C_COMPILER_ARG1=
 CMAKE_C_COMPILER_ENV_VAR=CC
 CMAKE_C_COMPILER_FRONTEND_VARIANT=
 CMAKE_C_COMPILER_ID=GNU
-CMAKE_C_COMPILER_ID_PLATFORM_CONTENT=#define STRINGIFY_HELPER(X) #X
-#define STRINGIFY(X) STRINGIFY_HELPER(X)
-
-/* Identify known platforms by name.  */
-#if defined(__linux) || defined(__linux__) || defined(linux)
-# define PLATFORM_ID "Linux"
-
-#elif defined(__CYGWIN__)
-# define PLATFORM_ID "Cygwin"
-
-#elif defined(__MINGW32__)
-# define PLATFORM_ID "MinGW"
-
-#elif defined(__APPLE__)
-# define PLATFORM_ID "Darwin"
-
-#elif defined(_WIN32) || defined(__WIN32__) || defined(WIN32)
-# define PLATFORM_ID "Windows"
-
-#elif defined(__FreeBSD__) || defined(__FreeBSD)
-# define PLATFORM_ID "FreeBSD"
-
-#elif defined(__NetBSD__) || defined(__NetBSD)
-# define PLATFORM_ID "NetBSD"
-
-#elif defined(__OpenBSD__) || defined(__OPENBSD)
-# define PLATFORM_ID "OpenBSD"
-
-#elif defined(__sun) || defined(sun)
-# define PLATFORM_ID "SunOS"
-
-#elif defined(_AIX) || defined(__AIX) || defined(__AIX__) || defined(__aix) || defined(__aix__)
-# define PLATFORM_ID "AIX"
-
-#elif defined(__hpux) || defined(__hpux__)
-# define PLATFORM_ID "HP-UX"
-
-#elif defined(__HAIKU__)
-# define PLATFORM_ID "Haiku"
-
-#elif defined(__BeOS) || defined(__BEOS__) || defined(_BEOS)
-# define PLATFORM_ID "BeOS"
-
-#elif defined(__QNX__) || defined(__QNXNTO__)
-# define PLATFORM_ID "QNX"
-
-#elif defined(__tru64) || defined(_tru64) || defined(__TRU64__)
-# define PLATFORM_ID "Tru64"
-
-#elif defined(__riscos) || defined(__riscos__)
-# define PLATFORM_ID "RISCos"
-
-#elif defined(__sinix) || defined(__sinix__) || defined(__SINIX__)
-# define PLATFORM_ID "SINIX"
-
-#elif defined(__UNIX_SV__)
-# define PLATFORM_ID "UNIX_SV"
-
-#elif defined(__bsdos__)
-# define PLATFORM_ID "BSDOS"
-
-#elif defined(_MPRAS) || defined(MPRAS)
-# define PLATFORM_ID "MP-RAS"
-
-#elif defined(__osf) || defined(__osf__)
-# define PLATFORM_ID "OSF1"
-
-#elif defined(_SCO_SV) || defined(SCO_SV) || defined(sco_sv)
-# define PLATFORM_ID "SCO_SV"
-
-#elif defined(__ultrix) || defined(__ultrix__) || defined(_ULTRIX)
-# define PLATFORM_ID "ULTRIX"
-
-#elif defined(__XENIX__) || defined(_XENIX) || defined(XENIX)
-# define PLATFORM_ID "Xenix"
-
-#elif defined(__WATCOMC__)
-# if defined(__LINUX__)
-#  define PLATFORM_ID "Linux"
-
-# elif defined(__DOS__)
-#  define PLATFORM_ID "DOS"
-
-# elif defined(__OS2__)
-#  define PLATFORM_ID "OS2"
-
-# elif defined(__WINDOWS__)
-#  define PLATFORM_ID "Windows3x"
-
-# elif defined(__VXWORKS__)
-#  define PLATFORM_ID "VxWorks"
-
-# else /* unknown platform */
-#  define PLATFORM_ID
-# endif
-
-#elif defined(__INTEGRITY)
-# if defined(INT_178B)
-#  define PLATFORM_ID "Integrity178"
-
-# else /* regular Integrity */
-#  define PLATFORM_ID "Integrity"
-# endif
-
-#else /* unknown platform */
-# define PLATFORM_ID
-
-#endif
-
-/* For windows compilers MSVC and Intel we can determine
-   the architecture of the compiler being used.  This is because
-   the compilers do not have flags that can change the architecture,
-   but rather depend on which compiler is being used
-*/
-#if defined(_WIN32) && defined(_MSC_VER)
-# if defined(_M_IA64)
-#  define ARCHITECTURE_ID "IA64"
-
-# elif defined(_M_X64) || defined(_M_AMD64)
-#  define ARCHITECTURE_ID "x64"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# elif defined(_M_ARM64)
-#  define ARCHITECTURE_ID "ARM64"
-
-# elif defined(_M_ARM)
-#  if _M_ARM == 4
-#   define ARCHITECTURE_ID "ARMV4I"
-#  elif _M_ARM == 5
-#   define ARCHITECTURE_ID "ARMV5I"
-#  else
-#   define ARCHITECTURE_ID "ARMV" STRINGIFY(_M_ARM)
-#  endif
-
-# elif defined(_M_MIPS)
-#  define ARCHITECTURE_ID "MIPS"
-
-# elif defined(_M_SH)
-#  define ARCHITECTURE_ID "SHx"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__WATCOMC__)
-# if defined(_M_I86)
-#  define ARCHITECTURE_ID "I86"
-
-# elif defined(_M_IX86)
-#  define ARCHITECTURE_ID "X86"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__IAR_SYSTEMS_ICC__) || defined(__IAR_SYSTEMS_ICC)
-# if defined(__ICCARM__)
-#  define ARCHITECTURE_ID "ARM"
-
-# elif defined(__ICCRX__)
-#  define ARCHITECTURE_ID "RX"
-
-# elif defined(__ICCRH850__)
-#  define ARCHITECTURE_ID "RH850"
-
-# elif defined(__ICCRL78__)
-#  define ARCHITECTURE_ID "RL78"
-
-# elif defined(__ICCRISCV__)
-#  define ARCHITECTURE_ID "RISCV"
-
-# elif defined(__ICCAVR__)
-#  define ARCHITECTURE_ID "AVR"
-
-# elif defined(__ICC430__)
-#  define ARCHITECTURE_ID "MSP430"
-
-# elif defined(__ICCV850__)
-#  define ARCHITECTURE_ID "V850"
-
-# elif defined(__ICC8051__)
-#  define ARCHITECTURE_ID "8051"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-
-#elif defined(__ghs__)
-# if defined(__PPC64__)
-#  define ARCHITECTURE_ID "PPC64"
-
-# elif defined(__ppc__)
-#  define ARCHITECTURE_ID "PPC"
-
-# elif defined(__ARM__)
-#  define ARCHITECTURE_ID "ARM"
-
-# elif defined(__x86_64__)
-#  define ARCHITECTURE_ID "x64"
-
-# elif defined(__i386__)
-#  define ARCHITECTURE_ID "X86"
-
-# else /* unknown architecture */
-#  define ARCHITECTURE_ID ""
-# endif
-#else
-#  define ARCHITECTURE_ID
-#endif
-
-/* Convert integer to decimal digit literals.  */
-#define DEC(n)                   \
-  ('0' + (((n) / 10000000)%10)), \
-  ('0' + (((n) / 1000000)%10)),  \
-  ('0' + (((n) / 100000)%10)),   \
-  ('0' + (((n) / 10000)%10)),    \
-  ('0' + (((n) / 1000)%10)),     \
-  ('0' + (((n) / 100)%10)),      \
-  ('0' + (((n) / 10)%10)),       \
-  ('0' +  ((n) % 10))
-
-/* Convert integer to hex digit literals.  */
-#define HEX(n)             \
-  ('0' + ((n)>>28 & 0xF)), \
-  ('0' + ((n)>>24 & 0xF)), \
-  ('0' + ((n)>>20 & 0xF)), \
-  ('0' + ((n)>>16 & 0xF)), \
-  ('0' + ((n)>>12 & 0xF)), \
-  ('0' + ((n)>>8  & 0xF)), \
-  ('0' + ((n)>>4  & 0xF)), \
-  ('0' + ((n)     & 0xF))
-
-/* Construct a string literal encoding the version number components. */
-#ifdef COMPILER_VERSION_MAJOR
-char const info_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','[',
-  COMPILER_VERSION_MAJOR,
-# ifdef COMPILER_VERSION_MINOR
-  '.', COMPILER_VERSION_MINOR,
-#  ifdef COMPILER_VERSION_PATCH
-   '.', COMPILER_VERSION_PATCH,
-#   ifdef COMPILER_VERSION_TWEAK
-    '.', COMPILER_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct a string literal encoding the internal version number. */
-#ifdef COMPILER_VERSION_INTERNAL
-char const info_version_internal[] = {
-  'I', 'N', 'F', 'O', ':',
-  'c','o','m','p','i','l','e','r','_','v','e','r','s','i','o','n','_',
-  'i','n','t','e','r','n','a','l','[',
-  COMPILER_VERSION_INTERNAL,']','\0'};
-#endif
-
-/* Construct a string literal encoding the version number components. */
-#ifdef SIMULATE_VERSION_MAJOR
-char const info_simulate_version[] = {
-  'I', 'N', 'F', 'O', ':',
-  's','i','m','u','l','a','t','e','_','v','e','r','s','i','o','n','[',
-  SIMULATE_VERSION_MAJOR,
-# ifdef SIMULATE_VERSION_MINOR
-  '.', SIMULATE_VERSION_MINOR,
-#  ifdef SIMULATE_VERSION_PATCH
-   '.', SIMULATE_VERSION_PATCH,
-#   ifdef SIMULATE_VERSION_TWEAK
-    '.', SIMULATE_VERSION_TWEAK,
-#   endif
-#  endif
-# endif
-  ']','\0'};
-#endif
-
-/* Construct the string literal in pieces to prevent the source from
-   getting matched.  Store it in a pointer rather than an array
-   because some compilers will just produce instructions to fill the
-   array rather than assigning a pointer to a static array.  */
-char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";
-char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";
-
-
 CMAKE_C_COMPILER_ID_RUN=1
-CMAKE_C_COMPILER_ID_TEST_FLAGS=-c;-Aa;-D__CLASSIC_C__;--target=arm-arm-none-eabi -mcpu=cortex-m3
-CMAKE_C_COMPILER_ID_TOOL_MATCH_INDEX=2
-CMAKE_C_COMPILER_ID_TOOL_MATCH_REGEX=
-Ld[^
-]*(
-[ 	]+[^
-]*)*
-[ 	]+([^ 	
-]+)[^
-]*-o[^
-]*CompilerIdC/(\./)?(CompilerIdC.(framework|xctest)/)?CompilerIdC[ 	
-\"]
-CMAKE_C_COMPILER_ID_VENDORS=IAR
-CMAKE_C_COMPILER_ID_VENDOR_REGEX_IAR=IAR .+ Compiler
-CMAKE_C_COMPILER_INIT=NOTFOUND
-CMAKE_C_COMPILER_LIST=cc;gcc;cl;bcc;xlc;clang
 CMAKE_C_COMPILER_LOADED=1
-CMAKE_C_COMPILER_NAMES=cc
 CMAKE_C_COMPILER_PREDEFINES_COMMAND=/usr/bin/cc;-dM;-E;-c;/usr/share/cmake-3.18/Modules/CMakeCXXCompilerABI.cpp
-CMAKE_C_COMPILER_PRODUCED_FILES=a.out
-CMAKE_C_COMPILER_PRODUCED_OUTPUT=
 CMAKE_C_COMPILER_RANLIB=/usr/bin/gcc-ranlib-10
 CMAKE_C_COMPILER_RANLIB=/usr/bin/gcc-ranlib-10
-CMAKE_C_COMPILER_SYSROOT=
 CMAKE_C_COMPILER_VERSION=10.2.1
 CMAKE_C_COMPILER_VERSION_INTERNAL=
 CMAKE_C_COMPILER_WORKS=TRUE
@@ -941,7 +326,6 @@ CMAKE_C_SOURCE_FILE_EXTENSIONS=c;m
 CMAKE_C_STANDARD_COMPUTED_DEFAULT=11
 CMAKE_C_STANDARD_DEFAULT=11
 CMAKE_C_VERBOSE_FLAG=-v
-CMAKE_C_XCODE_ARCHS=
 CMAKE_DEPFILE_FLAGS_C=-MD -MT <OBJECT> -MF <DEPFILE>
 CMAKE_DEPFILE_FLAGS_CXX=-MD -MT <OBJECT> -MF <DEPFILE>
 CMAKE_DLLTOOL=CMAKE_DLLTOOL-NOTFOUND
@@ -1060,6 +444,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO=
 CMAKE_MT=
 CMAKE_NM=/usr/bin/nm
+CMAKE_NUMBER_OF_MAKEFILES=72
 CMAKE_OBJCOPY=/usr/bin/objcopy
 CMAKE_OBJDUMP=/usr/bin/objdump
 CMAKE_PARENT_LIST_FILE=/home/user/library/opencv-4.5.2/CMakeLists.txt
@@ -1119,7 +504,6 @@ CMAKE_SHARED_MODULE_LINK_STATIC_C_FLAGS=-Wl,-Bstatic
 CMAKE_SHARED_MODULE_PREFIX=lib
 CMAKE_SHARED_MODULE_SUFFIX=.so
 CMAKE_SIZEOF_UNSIGNED_SHORT=2
-CMAKE_SIZEOF_UNSIGNED_SHORT_CODE=#define CMAKE_SIZEOF_UNSIGNED_SHORT 2
 CMAKE_SIZEOF_VOID_P=8
 CMAKE_SKIP_INSTALL_RPATH=NO
 CMAKE_SKIP_RPATH=NO
@@ -1144,8 +528,6 @@ CMAKE_SYSTEM_SPECIFIC_INFORMATION_LOADED=1
 CMAKE_SYSTEM_SPECIFIC_INITIALIZE_LOADED=1
 CMAKE_SYSTEM_VERSION=5.10.209-phytium-embedded-v2.2
 CMAKE_TESTING_ENABLED=1
-CMAKE_TEST_ENDIANESS_STRINGS_BE=
-CMAKE_TEST_ENDIANESS_STRINGS_LE=THIS IS LITTLE ENDIAN.
 CMAKE_THREAD_LIBS_INIT=
 CMAKE_TRY_COMPILE_CONFIGURATION=Release
 CMAKE_TWEAK_VERSION=0
@@ -1153,7 +535,6 @@ CMAKE_UNAME=/usr/bin/uname
 CMAKE_USE_PTHREADS_INIT=1
 CMAKE_VERBOSE_MAKEFILE=FALSE
 CMAKE_VERSION=3.18.4
-COMPILER_BASENAME=cc
 CPACK_BINARY_DEB=OFF
 CPACK_BINARY_FREEBSD=OFF
 CPACK_BINARY_IFW=OFF
@@ -1225,11 +606,11 @@ CPACK_INSTALLED_DIRECTORIES=/home/user/library/opencv-4.5.2;/
 CPACK_INSTALL_CMAKE_PROJECTS=
 CPACK_INSTALL_PREFIX=/home/user/library/opencv-4.5.2/build/your-path-to-custom-dir
 CPACK_MODULE_PATH=
-CPACK_NSIS_DISPLAY_NAME=OpenCV unknown
+CPACK_NSIS_DISPLAY_NAME=OpenCV 21c7cb51-dirty
 CPACK_NSIS_INSTALLER_ICON_CODE=
 CPACK_NSIS_INSTALLER_MUI_ICON_CODE=
 CPACK_NSIS_INSTALL_ROOT=$PROGRAMFILES
-CPACK_NSIS_PACKAGE_NAME=OpenCV unknown
+CPACK_NSIS_PACKAGE_NAME=OpenCV 21c7cb51-dirty
 CPACK_NSIS_UNINSTALL_NAME=Uninstall
 CPACK_OUTPUT_CONFIG_FILE=/home/user/library/opencv-4.5.2/build/CPackConfig.cmake
 CPACK_PACKAGE_CONTACT=admin@opencv.org
@@ -1241,13 +622,13 @@ machine perception in the commercial products. Being a BSD-licensed product,
 OpenCV makes it easy for businesses to utilize and modify the code.
 CPACK_PACKAGE_DESCRIPTION_FILE=/usr/share/cmake-3.18/Templates/CPack.GenericDescription.txt
 CPACK_PACKAGE_DESCRIPTION_SUMMARY=Open Computer Vision Library
-CPACK_PACKAGE_FILE_NAME=OpenCV-unknown-aarch64
-CPACK_PACKAGE_INSTALL_DIRECTORY=OpenCV unknown
-CPACK_PACKAGE_INSTALL_REGISTRY_KEY=OpenCV unknown
+CPACK_PACKAGE_FILE_NAME=OpenCV-21c7cb51-dirty-aarch64
+CPACK_PACKAGE_INSTALL_DIRECTORY=OpenCV 21c7cb51-dirty
+CPACK_PACKAGE_INSTALL_REGISTRY_KEY=OpenCV 21c7cb51-dirty
 CPACK_PACKAGE_NAME=OpenCV
 CPACK_PACKAGE_RELOCATABLE=true
 CPACK_PACKAGE_VENDOR=OpenCV Foundation
-CPACK_PACKAGE_VERSION=unknown
+CPACK_PACKAGE_VERSION=21c7cb51-dirty
 CPACK_PACKAGE_VERSION_MAJOR=4
 CPACK_PACKAGE_VERSION_MINOR=5
 CPACK_PACKAGE_VERSION_PATCH=2
@@ -1270,7 +651,7 @@ CPACK_SOURCE_GENERATOR=TBZ2;TGZ;TXZ;TZ
 CPACK_SOURCE_IGNORE_FILES=/CVS/;/\\.svn/;/\\.bzr/;/\\.hg/;/\\.git/;\\.swp\$;\\.#;/#
 CPACK_SOURCE_INSTALLED_DIRECTORIES=/home/user/library/opencv-4.5.2;/
 CPACK_SOURCE_OUTPUT_CONFIG_FILE=/home/user/library/opencv-4.5.2/build/CPackSourceConfig.cmake
-CPACK_SOURCE_PACKAGE_FILE_NAME=OpenCV-unknown-aarch64
+CPACK_SOURCE_PACKAGE_FILE_NAME=OpenCV-21c7cb51-dirty-aarch64
 CPACK_SOURCE_RPM=OFF
 CPACK_SOURCE_TBZ2=ON
 CPACK_SOURCE_TGZ=ON
@@ -1439,15 +820,14 @@ FFMPEG_libswscale_LIBDIR=/usr/local/lib
 FFMPEG_libswscale_MODULE_NAME=libswscale
 FFMPEG_libswscale_PREFIX=/usr/local
 FFMPEG_libswscale_VERSION=5.5.100
-FILE=
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig=[/usr/bin/pkg-config][v0.29.2()]
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp=[/home/user/miniconda3/bin/python3][v3.13.2(3.2)]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp=[/home/user/miniconda3/bin/python][v3.13.2(2.7)]
 FIND_PACKAGE_MESSAGE_DETAILS_Threads=[TRUE][v()]
 FIND_PACKAGE_MESSAGE_DETAILS_ZLIB=[zlib][/home/user/library/opencv-4.5.2/3rdparty/zlib;/home/user/library/opencv-4.5.2/build/3rdparty/zlib][v1.2.11()]
 GENERATE_ABI_DESCRIPTOR=OFF
 GIT_EXECUTABLE=/usr/bin/git
 GIT_FOUND=TRUE
-GIT_RESULT=128
+GIT_RESULT=0
 GIT_VERSION_STRING=2.30.2
 GSTREAMER_app_CFLAGS=
 GSTREAMER_app_CFLAGS_I=
@@ -1649,6 +1029,31 @@ GTK3_gtk+-3.0_INCLUDEDIR=
 GTK3_gtk+-3.0_LIBDIR=
 GTK3_gtk+-3.0_PREFIX=
 GTK3_gtk+-3.0_VERSION=
+GTKGLEXT_CFLAGS=
+GTKGLEXT_CFLAGS_I=
+GTKGLEXT_CFLAGS_OTHER=
+GTKGLEXT_FOUND=
+GTKGLEXT_INCLUDEDIR=
+GTKGLEXT_LIBDIR=
+GTKGLEXT_LIBS=
+GTKGLEXT_LIBS_L=
+GTKGLEXT_LIBS_OTHER=
+GTKGLEXT_LIBS_PATHS=
+GTKGLEXT_MODULE_NAME=
+GTKGLEXT_PREFIX=
+GTKGLEXT_STATIC_CFLAGS=
+GTKGLEXT_STATIC_CFLAGS_I=
+GTKGLEXT_STATIC_CFLAGS_OTHER=
+GTKGLEXT_STATIC_LIBDIR=
+GTKGLEXT_STATIC_LIBS=
+GTKGLEXT_STATIC_LIBS_L=
+GTKGLEXT_STATIC_LIBS_OTHER=
+GTKGLEXT_STATIC_LIBS_PATHS=
+GTKGLEXT_VERSION=
+GTKGLEXT_gtkglext-1.0_INCLUDEDIR=
+GTKGLEXT_gtkglext-1.0_LIBDIR=
+GTKGLEXT_gtkglext-1.0_PREFIX=
+GTKGLEXT_gtkglext-1.0_VERSION=
 Git_FOUND=TRUE
 HAVE_ASSERT_H=1
 HAVE_ATOMIC_LONG_LONG=OFF
@@ -1940,7 +1345,6 @@ LAPACK_LIBRARIES=
 LIBRARY_NAME_UPPER=ILMTHREAD
 LIBRARY_OUTPUT_PATH=/home/user/library/opencv-4.5.2/build/lib
 LOOKED_FOR=Atlas_CBLAS_INCLUDE_DIR;Atlas_CLAPACK_INCLUDE_DIR;Atlas_CBLAS_LIBRARY;Atlas_BLAS_LIBRARY;Atlas_LAPACK_LIBRARY
-MACRO_CHECK_FUNCTION_DEFINITIONS=-DCHECK_FUNCTION_EXISTS=sgemm_ 
 MIN_VER_CMAKE=3.5.1
 MIN_VER_CUDA=6.5
 MIN_VER_CUDNN=7.5
@@ -1952,8 +1356,6 @@ MKL_ROOT_DIR=MKL_ROOT_DIR-NOTFOUND
 MKL_USE_SINGLE_DYNAMIC_LIBRARY=OFF
 MKL_WITH_OPENMP=OFF
 MKL_WITH_TBB=OFF
-MSVC_CXX_ARCHITECTURE_ID=
-MSVC_C_ARCHITECTURE_ID=
 M_LIBRARY=/usr/lib/aarch64-linux-gnu/libm.so
 NEED_SYS_TYPES_H=1
 OCV_CAN_BUILD_OPENJPEG=TRUE
@@ -2966,7 +2368,7 @@ OPENCV_TEST_DATA_INSTALL_PATH=share/opencv4/testdata
 OPENCV_TEST_INSTALL_PATH=bin
 OPENCV_TIMESTAMP=2025-05-14T07:40:13Z
 OPENCV_TRACE=1
-OPENCV_VCSVERSION=unknown
+OPENCV_VCSVERSION=21c7cb51-dirty
 OPENCV_VERIFICATIONS=WITH_1394;WITH_AVFOUNDATION;WITH_CAP_IOS;WITH_CPUFEATURES;WITH_VTK;WITH_CUDA;WITH_CUFFT;WITH_CUBLAS;WITH_CUDNN;WITH_NVCUVID;WITH_EIGEN;WITH_FFMPEG;WITH_GSTREAMER;WITH_GTK;WITH_GTK_2_X;WITH_IPP;WITH_HALIDE;WITH_VULKAN;WITH_INF_ENGINE;WITH_NGRAPH;WITH_JASPER;WITH_OPENJPEG;WITH_JPEG;WITH_WEBP;WITH_OPENEXR;WITH_OPENGL;WITH_OPENVX;WITH_OPENNI;WITH_OPENNI2;WITH_PNG;WITH_GDCM;WITH_PVAPI;WITH_ARAVIS;WITH_QT;WITH_WIN32UI;WITH_TBB;WITH_HPX;WITH_OPENMP;WITH_PTHREADS_PF;WITH_TIFF;WITH_V4L;WITH_DSHOW;WITH_MSMF;WITH_MSMF_DXVA;WITH_XIMEA;WITH_UEYE;WITH_XINE;WITH_CLP;WITH_OPENCL;WITH_OPENCL_SVM;WITH_OPENCLAMDFFT;WITH_OPENCLAMDBLAS;WITH_DIRECTX;WITH_OPENCL_D3D11_NV;WITH_LIBREALSENSE;WITH_VA;WITH_VA_INTEL;WITH_MFX;WITH_GDAL;WITH_GPHOTO2;WITH_LAPACK;WITH_ITT;WITH_PROTOBUF;WITH_IMGCODEC_HDR;WITH_IMGCODEC_SUNRASTER;WITH_IMGCODEC_PXM;WITH_IMGCODEC_PFM;WITH_QUIRC;WITH_ANDROID_MEDIANDK;WITH_ANDROID_NATIVE_CAMERA;WITH_TENGINE;WITH_ONNX
 OPENCV_VERIFY_WITH_1394=HAVE_DC1394_2
 OPENCV_VERIFY_WITH_ANDROID_MEDIANDK=HAVE_ANDROID_MEDIANDK
@@ -3081,24 +2483,6 @@ OPJ_HAVE_STDINT_H=1
 OPJ_HAVE__ALIGNED_MALLOC=
 OPJ_USE_THREAD=ON
 OPT=
-OUTPUT=Change Dir: /home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/gmake cmTC_013b7/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_013b7.dir/build.make CMakeFiles/cmTC_013b7.dir/build
-gmake[1]: Entering directory '/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_013b7.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections    -fvisibility=hidden -DCHECK_FUNCTION_EXISTS=sgemm_ -O3 -DNDEBUG  -DNDEBUG -fPIE -o CMakeFiles/cmTC_013b7.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.18/Modules/CheckFunctionExists.c
-Linking C executable cmTC_013b7
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_013b7.dir/link.txt --verbose=1
-/usr/bin/cc    -fsigned-char -W -Wall -Werror=return-type -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wuninitialized -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections    -fvisibility=hidden -DCHECK_FUNCTION_EXISTS=sgemm_ -O3 -DNDEBUG  -DNDEBUG   -Wl,--gc-sections -Wl,--as-needed  CMakeFiles/cmTC_013b7.dir/CheckFunctionExists.c.o -o cmTC_013b7 
-/usr/bin/ld: CMakeFiles/cmTC_013b7.dir/CheckFunctionExists.c.o: in function `main':
-CheckFunctionExists.c:(.text.startup.main+0x10): undefined reference to `sgemm_'
-collect2: error: ld returned 1 exit status
-gmake[1]: *** [CMakeFiles/cmTC_013b7.dir/build.make:106: cmTC_013b7] Error 1
-gmake[1]: Leaving directory '/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_013b7/fast] Error 2
-
-
-OUTPUT_LINES=Change Dir: /home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp;;Run Build Command(s):/usr/bin/gmake cmTC_d788d/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d788d.dir/build.make CMakeFiles/cmTC_d788d.dir/build;gmake[1]: Entering directory '/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp';Building CXX object CMakeFiles/cmTC_d788d.dir/src.cxx.o;/usr/bin/c++   -O3 -DNDEBUG -fPIE -std=c++11 -o CMakeFiles/cmTC_d788d.dir/src.cxx.o -c /home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp/src.cxx;Linking CXX executable cmTC_d788d;/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d788d.dir/link.txt --verbose=1;/usr/bin/c++ -O3 -DNDEBUG  -Wl,--as-needed  CMakeFiles/cmTC_d788d.dir/src.cxx.o -o cmTC_d788d ;gmake[1]: Leaving directory '/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp';;
 OpenBLAS=
 OpenBLAS_FOUND=OFF
 OpenBLAS_INCLUDE_DIR=OpenBLAS_INCLUDE_DIR-NOTFOUND
@@ -3143,7 +2527,6 @@ PNG_LIBRARY_DEBUG=PNG_LIBRARY_DEBUG-NOTFOUND
 PNG_LIBRARY_RELEASE=PNG_LIBRARY_RELEASE-NOTFOUND
 PNG_VERSION=1.6.37
 PNG_VERSION_LINES=#define PNG_LIBPNG_VER_MAJOR   1;#define PNG_LIBPNG_VER_MINOR   6;#define PNG_LIBPNG_VER_RELEASE 37
-PRESET_CMAKE_SYSTEM_NAME=FALSE
 PROJECT_BINARY_DIR=/home/user/library/opencv-4.5.2/build
 PROJECT_DESCRIPTION=
 PROJECT_HOMEPAGE_URL=
@@ -3227,30 +2610,6 @@ SIZEOF_UNSIGNED_LONG_LONG=8
 SIZEOF_UNSIGNED_SHORT=2
 STD_OPENCV_DEV=libopencv-dev;libopencv-calib3d-dev;libopencv-core-dev;libopencv-dnn-dev;libopencv-features2d-dev;libopencv-flann-dev;libopencv-gapi-dev;libopencv-highgui-dev;libopencv-imgcodecs-dev;libopencv-imgproc-dev;libopencv-ml-dev;libopencv-objdetect-dev;libopencv-photo-dev;libopencv-stitching-dev;libopencv-video-dev;libopencv-videoio-dev
 STD_OPENCV_LIBS=opencv-data;libopencv-calib3d4.0;libopencv-core4.0;libopencv-dnn4.0;libopencv-features2d4.0;libopencv-flann4.0;libopencv-gapi4.0;libopencv-highgui4.0;libopencv-imgcodecs4.0;libopencv-imgproc4.0;libopencv-ml4.0;libopencv-objdetect4.0;libopencv-photo4.0;libopencv-stitching4.0;libopencv-video4.0;libopencv-videoio4.0
-TEST_ENDIANESS_FILE_CONTENT=/* A 16 bit integer is required. */
-typedef unsigned short cmakeint16;
-
-/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
-   On a big endian machine the characters will be exchanged pairwise. */
-const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
-
-/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
-   On a little endian machine the characters will be exchanged pairwise. */
-const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
-
-#ifdef __CLASSIC_C__
-int main(argc, argv) int argc; char *argv[];
-#else
-int main(int argc, char *argv[])
-#endif
-{
-  int require = 0;
-  require += info_little[argc];
-  require += info_big[argc];
-  (void)argv;
-  return require;
-}
-
 THREADS_FOUND=TRUE
 TIFF_BIGTIFF_VERSION=
 TIFF_FOUND=FALSE
@@ -3266,16 +2625,16 @@ TIFF_VERSION_LINES=#define TIFF_VERSION_CLASSIC 42;#define TIFF_VERSION_BIG 43
 TIFF_VERSION_STRING=4.2.0
 TRY_OUT=Change Dir: /home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_440fa/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_440fa.dir/build.make CMakeFiles/cmTC_440fa.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_5a4a0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5a4a0.dir/build.make CMakeFiles/cmTC_5a4a0.dir/build
 gmake[1]: Entering directory '/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_440fa.dir/opencl.cpp.o
-/usr/bin/c++  -I/home/user/library/opencv-4.5.2/3rdparty/include/opencl/1.2 -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -fPIE -std=c++11 -o CMakeFiles/cmTC_440fa.dir/opencl.cpp.o -c /home/user/library/opencv-4.5.2/cmake/checks/opencl.cpp
+Building CXX object CMakeFiles/cmTC_5a4a0.dir/opencl.cpp.o
+/usr/bin/c++  -I/home/user/library/opencv-4.5.2/3rdparty/include/opencl/1.2 -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wuninitialized -Wsuggest-override -Wno-delete-non-virtual-dtor -Wno-comment -Wimplicit-fallthrough=3 -Wno-strict-overflow -fdiagnostics-show-option -pthread -fomit-frame-pointer -ffunction-sections -fdata-sections    -fvisibility=hidden -fvisibility-inlines-hidden  -O3 -DNDEBUG  -DNDEBUG -fPIE -std=c++11 -o CMakeFiles/cmTC_5a4a0.dir/opencl.cpp.o -c /home/user/library/opencv-4.5.2/cmake/checks/opencl.cpp
 /home/user/library/opencv-4.5.2/cmake/checks/opencl.cpp:6:2: error: #error OpenCL is valid
     6 | #error OpenCL is valid
       |  ^~~~~
-gmake[1]: *** [CMakeFiles/cmTC_440fa.dir/build.make:85: CMakeFiles/cmTC_440fa.dir/opencl.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/cmTC_5a4a0.dir/build.make:85: CMakeFiles/cmTC_5a4a0.dir/opencl.cpp.o] Error 1
 gmake[1]: Leaving directory '/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp'
-gmake: *** [Makefile:140: cmTC_440fa/fast] Error 2
+gmake: *** [Makefile:140: cmTC_5a4a0/fast] Error 2
 
 
 Threads_FOUND=TRUE
@@ -3331,7 +2690,7 @@ WITH_OPENCLAMDBLAS=ON
 WITH_OPENCLAMDFFT=ON
 WITH_OPENCL_SVM=OFF
 WITH_OPENEXR=ON
-WITH_OPENGL=OFF
+WITH_OPENGL=ON
 WITH_OPENJPEG=ON
 WITH_OPENMP=OFF
 WITH_OPENNI=OFF
@@ -3372,17 +2731,16 @@ ZLIB_VERSION_STRING=1.2.11
 ZLIB_VERSION_TWEAK=
 Z_HAVE_UNISTD_H=1
 _CMAKE_CUDA_IMPLICIT_INCLUDE_DIRECTORIES_INIT=/usr/include
-_CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES_INIT=/usr/include
+_CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES_INIT=/usr/include/c++/10;/usr/include/aarch64-linux-gnu/c++/10;/usr/include/c++/10/backward;/usr/lib/gcc/aarch64-linux-gnu/10/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include;/usr/include
 _CMAKE_CXX_IPO_MAY_BE_SUPPORTED_BY_COMPILER=YES
 _CMAKE_CXX_IPO_SUPPORTED_BY_CMAKE=YES
 _CMAKE_CXX_PIE_MAY_BE_SUPPORTED_BY_LINKER=YES
-_CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES_INIT=/usr/include
+_CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES_INIT=/usr/lib/gcc/aarch64-linux-gnu/10/include;/usr/local/include;/usr/include/aarch64-linux-gnu;/usr/include;/usr/include
 _CMAKE_C_IPO_MAY_BE_SUPPORTED_BY_COMPILER=YES
 _CMAKE_C_IPO_SUPPORTED_BY_CMAKE=YES
 _CMAKE_C_PIE_MAY_BE_SUPPORTED_BY_LINKER=YES
 _CMAKE_INSTALL_DIR=/usr
 _CMAKE_PUSH_CHECK_STATE_COUNTER=0
-_CMAKE_TOOLCHAIN_LOCATION=/usr/bin
 _CPACK_OTHER_VARIABLES_=
 set(CPACK_BINARY_DEB "OFF")
 set(CPACK_BINARY_FREEBSD "OFF")
@@ -3455,11 +2813,11 @@ set(CPACK_INSTALLED_DIRECTORIES "/home/user/library/opencv-4.5.2;/")
 set(CPACK_INSTALL_CMAKE_PROJECTS "")
 set(CPACK_INSTALL_PREFIX "/home/user/library/opencv-4.5.2/build/your-path-to-custom-dir")
 set(CPACK_MODULE_PATH "")
-set(CPACK_NSIS_DISPLAY_NAME "OpenCV unknown")
+set(CPACK_NSIS_DISPLAY_NAME "OpenCV 21c7cb51-dirty")
 set(CPACK_NSIS_INSTALLER_ICON_CODE "")
 set(CPACK_NSIS_INSTALLER_MUI_ICON_CODE "")
 set(CPACK_NSIS_INSTALL_ROOT "$PROGRAMFILES")
-set(CPACK_NSIS_PACKAGE_NAME "OpenCV unknown")
+set(CPACK_NSIS_PACKAGE_NAME "OpenCV 21c7cb51-dirty")
 set(CPACK_NSIS_UNINSTALL_NAME "Uninstall")
 set(CPACK_OUTPUT_CONFIG_FILE "/home/user/library/opencv-4.5.2/build/CPackConfig.cmake")
 set(CPACK_PACKAGE_CONTACT "admin@opencv.org")
@@ -3471,13 +2829,13 @@ machine perception in the commercial products. Being a BSD-licensed product,
 OpenCV makes it easy for businesses to utilize and modify the code.")
 set(CPACK_PACKAGE_DESCRIPTION_FILE "/usr/share/cmake-3.18/Templates/CPack.GenericDescription.txt")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Open Computer Vision Library")
-set(CPACK_PACKAGE_FILE_NAME "OpenCV-unknown-aarch64")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY "OpenCV unknown")
-set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "OpenCV unknown")
+set(CPACK_PACKAGE_FILE_NAME "OpenCV-21c7cb51-dirty-aarch64")
+set(CPACK_PACKAGE_INSTALL_DIRECTORY "OpenCV 21c7cb51-dirty")
+set(CPACK_PACKAGE_INSTALL_REGISTRY_KEY "OpenCV 21c7cb51-dirty")
 set(CPACK_PACKAGE_NAME "OpenCV")
 set(CPACK_PACKAGE_RELOCATABLE "true")
 set(CPACK_PACKAGE_VENDOR "OpenCV Foundation")
-set(CPACK_PACKAGE_VERSION "unknown")
+set(CPACK_PACKAGE_VERSION "21c7cb51-dirty")
 set(CPACK_PACKAGE_VERSION_MAJOR "4")
 set(CPACK_PACKAGE_VERSION_MINOR "5")
 set(CPACK_PACKAGE_VERSION_PATCH "2")
@@ -3500,7 +2858,7 @@ set(CPACK_SOURCE_GENERATOR "TBZ2;TGZ;TXZ;TZ")
 set(CPACK_SOURCE_IGNORE_FILES "/CVS/;/\\.svn/;/\\.bzr/;/\\.hg/;/\\.git/;\\.swp\$;\\.#;/#")
 set(CPACK_SOURCE_INSTALLED_DIRECTORIES "/home/user/library/opencv-4.5.2;/")
 set(CPACK_SOURCE_OUTPUT_CONFIG_FILE "/home/user/library/opencv-4.5.2/build/CPackSourceConfig.cmake")
-set(CPACK_SOURCE_PACKAGE_FILE_NAME "OpenCV-unknown-aarch64")
+set(CPACK_SOURCE_PACKAGE_FILE_NAME "OpenCV-21c7cb51-dirty-aarch64")
 set(CPACK_SOURCE_RPM "OFF")
 set(CPACK_SOURCE_TBZ2 "ON")
 set(CPACK_SOURCE_TGZ "ON")
@@ -3521,7 +2879,6 @@ _JAVA_HOME=
 _JNI_JAVA_AWT_LIBRARY_TRIES=/usr/lib/jvm/java/jre/lib/{libarch};/usr/lib/jvm/java/jre/lib;/usr/lib/jvm/java/lib/{libarch};/usr/lib/jvm/java/lib;/usr/lib/jvm/java;/usr/lib/java/jre/lib/{libarch};/usr/lib/java/jre/lib;/usr/lib/java/lib/{libarch};/usr/lib/java/lib;/usr/lib/java;/usr/lib/jvm/jre/lib/{libarch};/usr/lib/jvm/jre/lib;/usr/lib/jvm/lib/{libarch};/usr/lib/jvm/lib;/usr/lib/jvm;/usr/local/lib/java/jre/lib/{libarch};/usr/local/lib/java/jre/lib;/usr/local/lib/java/lib/{libarch};/usr/local/lib/java/lib;/usr/local/lib/java;/usr/local/share/java/jre/lib/{libarch};/usr/local/share/java/jre/lib;/usr/local/share/java/lib/{libarch};/usr/local/share/java/lib;/usr/local/share/java;/usr/lib/j2sdk1.4-sun/jre/lib/{libarch};/usr/lib/j2sdk1.4-sun/jre/lib;/usr/lib/j2sdk1.4-sun/lib/{libarch};/usr/lib/j2sdk1.4-sun/lib;/usr/lib/j2sdk1.4-sun;/usr/lib/j2sdk1.5-sun/jre/lib/{libarch};/usr/lib/j2sdk1.5-sun/jre/lib;/usr/lib/j2sdk1.5-sun/lib/{libarch};/usr/lib/j2sdk1.5-sun/lib;/usr/lib/j2sdk1.5-sun;/opt/sun-jdk-1.5.0.04/jre/lib/{libarch};/opt/sun-jdk-1.5.0.04/jre/lib;/opt/sun-jdk-1.5.0.04/lib/{libarch};/opt/sun-jdk-1.5.0.04/lib;/opt/sun-jdk-1.5.0.04;/usr/lib/jvm/java-6-sun/jre/lib/{libarch};/usr/lib/jvm/java-6-sun/jre/lib;/usr/lib/jvm/java-6-sun/lib/{libarch};/usr/lib/jvm/java-6-sun/lib;/usr/lib/jvm/java-6-sun;/usr/lib/jvm/java-1.5.0-sun/jre/lib/{libarch};/usr/lib/jvm/java-1.5.0-sun/jre/lib;/usr/lib/jvm/java-1.5.0-sun/lib/{libarch};/usr/lib/jvm/java-1.5.0-sun/lib;/usr/lib/jvm/java-1.5.0-sun;/usr/lib/jvm/java-6-sun-1.6.0.00/jre/lib/{libarch};/usr/lib/jvm/java-6-sun-1.6.0.00/jre/lib;/usr/lib/jvm/java-6-sun-1.6.0.00/lib/{libarch};/usr/lib/jvm/java-6-sun-1.6.0.00/lib;/usr/lib/jvm/java-6-sun-1.6.0.00;/usr/lib/jvm/java-6-openjdk/jre/lib/{libarch};/usr/lib/jvm/java-6-openjdk/jre/lib;/usr/lib/jvm/java-6-openjdk/lib/{libarch};/usr/lib/jvm/java-6-openjdk/lib;/usr/lib/jvm/java-6-openjdk;/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib/{libarch};/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/lib;/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/lib/{libarch};/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/lib;/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0;/usr/lib/jvm/default-java/jre/lib/{libarch};/usr/lib/jvm/default-java/jre/lib;/usr/lib/jvm/default-java/lib/{libarch};/usr/lib/jvm/default-java/lib;/usr/lib/jvm/default-java;/usr/lib/jvm/default/jre/lib/{libarch};/usr/lib/jvm/default/jre/lib;/usr/lib/jvm/default/lib/{libarch};/usr/lib/jvm/default/lib;/usr/lib/jvm/default;/usr/lib/jvm/java-11-openjdk-{libarch}/jre/lib/{libarch};/usr/lib/jvm/java-11-openjdk-{libarch}/jre/lib;/usr/lib/jvm/java-11-openjdk-{libarch}/lib/{libarch};/usr/lib/jvm/java-11-openjdk-{libarch}/lib;/usr/lib/jvm/java-11-openjdk-{libarch};/usr/lib/jvm/java-8-openjdk-{libarch}/jre/lib/{libarch};/usr/lib/jvm/java-8-openjdk-{libarch}/jre/lib;/usr/lib/jvm/java-8-openjdk-{libarch}/lib/{libarch};/usr/lib/jvm/java-8-openjdk-{libarch}/lib;/usr/lib/jvm/java-8-openjdk-{libarch};/usr/lib/jvm/java-7-openjdk-{libarch}/jre/lib/{libarch};/usr/lib/jvm/java-7-openjdk-{libarch}/jre/lib;/usr/lib/jvm/java-7-openjdk-{libarch}/lib/{libarch};/usr/lib/jvm/java-7-openjdk-{libarch}/lib;/usr/lib/jvm/java-7-openjdk-{libarch};/usr/lib/jvm/java-6-openjdk-{libarch}/jre/lib/{libarch};/usr/lib/jvm/java-6-openjdk-{libarch}/jre/lib;/usr/lib/jvm/java-6-openjdk-{libarch}/lib/{libarch};/usr/lib/jvm/java-6-openjdk-{libarch}/lib;/usr/lib/jvm/java-6-openjdk-{libarch};/usr/local/jdk-1.7.0/jre/lib/{libarch};/usr/local/jdk-1.7.0/jre/lib;/usr/local/jdk-1.7.0/lib/{libarch};/usr/local/jdk-1.7.0/lib;/usr/local/jdk-1.7.0;/usr/local/jre-1.7.0/jre/lib/{libarch};/usr/local/jre-1.7.0/jre/lib;/usr/local/jre-1.7.0/lib/{libarch};/usr/local/jre-1.7.0/lib;/usr/local/jre-1.7.0;/usr/local/jdk-1.6.0/jre/lib/{libarch};/usr/local/jdk-1.6.0/jre/lib;/usr/local/jdk-1.6.0/lib/{libarch};/usr/local/jdk-1.6.0/lib;/usr/local/jdk-1.6.0;/usr/local/jre-1.6.0/jre/lib/{libarch};/usr/local/jre-1.6.0/jre/lib;/usr/local/jre-1.6.0/lib/{libarch};/usr/local/jre-1.6.0/lib;/usr/local/jre-1.6.0;/usr/lib64/jvm/java/jre/lib/{libarch};/usr/lib64/jvm/java/jre/lib;/usr/lib64/jvm/java/lib/{libarch};/usr/lib64/jvm/java/lib;/usr/lib64/jvm/java;/usr/lib64/jvm/jre/jre/lib/{libarch};/usr/lib64/jvm/jre/jre/lib;/usr/lib64/jvm/jre/lib/{libarch};/usr/lib64/jvm/jre/lib;/usr/lib64/jvm/jre
 _JNI_JAVA_DIRECTORIES_BASE=/usr/lib/jvm/java;/usr/lib/java;/usr/lib/jvm;/usr/local/lib/java;/usr/local/share/java;/usr/lib/j2sdk1.4-sun;/usr/lib/j2sdk1.5-sun;/opt/sun-jdk-1.5.0.04;/usr/lib/jvm/java-6-sun;/usr/lib/jvm/java-1.5.0-sun;/usr/lib/jvm/java-6-sun-1.6.0.00;/usr/lib/jvm/java-6-openjdk;/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0;/usr/lib/jvm/default-java;/usr/lib/jvm/default;/usr/lib/jvm/java-11-openjdk-{libarch};/usr/lib/jvm/java-8-openjdk-{libarch};/usr/lib/jvm/java-7-openjdk-{libarch};/usr/lib/jvm/java-6-openjdk-{libarch};/usr/local/jdk-1.7.0;/usr/local/jre-1.7.0;/usr/local/jdk-1.6.0;/usr/local/jre-1.6.0;/usr/lib64/jvm/java;/usr/lib64/jvm/jre
 _JNI_JAVA_INCLUDE_TRIES=/usr/lib/jvm/java/include;/usr/lib/java/include;/usr/lib/jvm/include;/usr/local/lib/java/include;/usr/local/share/java/include;/usr/lib/j2sdk1.4-sun/include;/usr/lib/j2sdk1.5-sun/include;/opt/sun-jdk-1.5.0.04/include;/usr/lib/jvm/java-6-sun/include;/usr/lib/jvm/java-1.5.0-sun/include;/usr/lib/jvm/java-6-sun-1.6.0.00/include;/usr/lib/jvm/java-6-openjdk/include;/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/include;/usr/lib/jvm/default-java/include;/usr/lib/jvm/default/include;/usr/lib/jvm/java-11-openjdk-{libarch}/include;/usr/lib/jvm/java-8-openjdk-{libarch}/include;/usr/lib/jvm/java-7-openjdk-{libarch}/include;/usr/lib/jvm/java-6-openjdk-{libarch}/include;/usr/local/jdk-1.7.0/include;/usr/local/jre-1.7.0/include;/usr/local/jdk-1.6.0/include;/usr/local/jre-1.6.0/include;/usr/lib64/jvm/java/include;/usr/lib64/jvm/jre/include
-_LIBDIR_DEFAULT=lib
 _LIBRARIES=BLAS_LIBRARIES
 _PCH_define_prefix=-D
 _PCH_include_prefix=-I
@@ -3529,10 +2886,6 @@ _PCH_isystem_prefix=-isystem
 _PKG_CONFIG_FAILURE_MESSAGE=
 _PKG_CONFIG_VERSION_ERROR=
 _Python2_EXECUTABLE=Python2_EXECUTABLE-NOTFOUND
-_SET_CMAKE_CXX_COMPILER_ARCHITECTURE_ID=
-_SET_CMAKE_CXX_COMPILER_SYSROOT=
-_SET_CMAKE_C_COMPILER_ARCHITECTURE_ID=
-_SET_CMAKE_C_COMPILER_SYSROOT=
 _ZLIB_SEARCHES=_ZLIB_SEARCH_NORMAL
 _ZLIB_SEARCH_NORMAL=PATHS;[HKEY_LOCAL_MACHINE\SOFTWARE\GnuWin32\Zlib;InstallPath];/zlib;/zlib
 _blas_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES=.so;.a;.so.3gf
@@ -3540,19 +2893,18 @@ _combined_name=_blas
 _compile_flags=  
 _extaddlibdir=ENV;LD_LIBRARY_PATH;/usr/lib/gcc/aarch64-linux-gnu/10;/usr/lib/aarch64-linux-gnu;/usr/lib;/lib/aarch64-linux-gnu;/lib
 _findgit_role=PROJECT
-_fname=/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp/src.cxx
+_fname=
 _imp_target=0
 _imp_target_global=0
 _isMultiConfig=0
 _java_dir=
 _java_libarch=arm64;aarch64
 _lang=C
-_language=C
 _lapack_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES=.so;.a
 _libarch=
 _libraries_work=BLAS_blas_LIBRARY-NOTFOUND
 _library=
-_line=
+_list=
 _newpath=/usr/lib/jvm/java-6-openjdk-aarch64/include
 _no_cmake_environment_path=0
 _no_cmake_path=0
@@ -3560,22 +2912,19 @@ _option=-Wl,--as-needed
 _path=
 _pkg=
 _pkg_check_modules_cnt=1
-_pkg_check_modules_exist_query=--print-errors;--short-errors;--exists;gthread-2.0
+_pkg_check_modules_exist_query=--print-errors;--short-errors;--exists;gtkglext-1.0
 _pkg_check_modules_failed=1
-_pkg_check_modules_list=gthread-2.0
-_pkg_check_modules_packages=gthread-2.0
+_pkg_check_modules_list=gtkglext-1.0
+_pkg_check_modules_packages=gtkglext-1.0
 _pkg_check_modules_pkg=
-_pkg_check_modules_pkg_name=gthread-2.0
+_pkg_check_modules_pkg_name=gtkglext-1.0
 _pkg_is_required=0
 _pkg_is_silent=0
-_pkg_modules=gthread-2.0
-_pkgconfig_error=No package 'gthread-2.0' found
+_pkg_modules=gtkglext-1.0
+_pkgconfig_error=No package 'gtkglext-1.0' found
 _pkgconfig_retval=1
-_regex=
 _rev_deps=opencv_videoio;opencv_imgcodecs;opencv_imgproc;opencv_core
 _saved_CMAKE_EXE_LINKER_FLAGS=
-_test_file=/home/user/library/opencv-4.5.2/build/CMakeFiles/CMakeTmp/TestEndianess.c
-_test_language=C
 _var=
 _varname=HAVE_C_FVISIBILITY_INLINES_HIDDEN
 apps_status=apps
@@ -3592,7 +2941,6 @@ deps_extra=dl;m;pthread;rt
 deps_modules=opencv_gapi;opencv_highgui;opencv_ml;opencv_objdetect;opencv_photo;opencv_stitching;opencv_video;opencv_calib3d;opencv_features2d;opencv_dnn;opencv_flann;opencv_videoio;opencv_imgcodecs;opencv_imgproc;opencv_core
 dir=
 docs_status=NO
-extension=
 h=
 hal=
 int16=
@@ -3623,7 +2971,8 @@ lst=
 lzw=ON
 m=
 mdi=ON
-mkl_root_paths=
+mkl_root_paths=MKL_ROOT_DIR-NOTFOUND
+mod=
 module=
 name=
 next=ON
@@ -3718,7 +3067,6 @@ trace_status=with Intel ITT
 type=
 v=
 v4l_status=linux/videodev2.h
-val=0
 var=
 vars_regex=PNG_LIBPNG_VER_MAJOR|PNG_LIBPNG_VER_MINOR|PNG_LIBPNG_VER_RELEASE
 zlib_BINARY_DIR=/home/user/library/opencv-4.5.2/build/3rdparty/zlib
