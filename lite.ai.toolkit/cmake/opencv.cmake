@@ -1,0 +1,13 @@
+find_package(OpenCV REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+link_directories(${OpenCV_LIBRARY_DIRS})
+
+if(NOT WIN32)
+    if(ENABLE_OPENCV_VIDEOIO OR ENABLE_TEST)
+        set(OpenCV_LIBS opencv_core opencv_imgproc opencv_imgcodecs opencv_video opencv_videoio opencv_calib3d)
+    else()
+        set(OpenCV_LIBS opencv_core opencv_imgproc opencv_imgcodecs opencv_calib3d)
+    endif()
+else()
+    set(OpenCV_LIBS opencv_world)
+endif()
